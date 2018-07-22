@@ -1,0 +1,19 @@
+Minion:
+	Personal Assistant
+
+
+AI chat bot
+runs programs from computer remotely
+responds to voiced conversations
+
+checks calender
+checks docs
+writes papers
+etc. 
+
+When Sparrow helmet is complete"
+	-boots up system
+	-open/close helmet
+	-activates gliderpack(when implemented)
+	-tightens suit
+
