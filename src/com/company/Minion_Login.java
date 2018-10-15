@@ -69,7 +69,7 @@ public class Minion_Login extends Minion_Master {
             if(info.contains(muse) && !info.equals(muse)){
                 int option = JOptionPane.showConfirmDialog(null, "Did you mean " + muse,"Category", 0,1);
                 if(option == 0){
-                    //intialize music
+                    musics.musicInterface();
                 }
                 if(option == 1){
                     interfaceForUser();
@@ -79,7 +79,8 @@ public class Minion_Login extends Minion_Master {
             if(info.contains(suit) && !info.equals(suit)){
                 int option = JOptionPane.showConfirmDialog(null, "Did you mean " + suit,"Category", 0,1);
                 if(option == 0){
-                    //intialize suit
+                    //Will need to buy necessary components to continue with this feature(Body Scanners, BPM readers, Heart tracking, etc)
+                    //Initialize suit
                 }
                 if(option == 1){
                     interfaceForUser();
@@ -98,7 +99,7 @@ public class Minion_Login extends Minion_Master {
 
             if(info.equals(muse.toLowerCase()) || info.equals(muse.toUpperCase())){
 
-                //TAKE TO ITEM'S CATEGORY INTERFACE
+                musics.musicInterface();
             }
 
             if(info.equals(suit.toLowerCase()) || info.equals(suit.toUpperCase())){

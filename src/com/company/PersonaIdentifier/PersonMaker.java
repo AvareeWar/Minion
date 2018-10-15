@@ -1,6 +1,5 @@
 package com.company.PersonaIdentifier;
 
-import com.company.Minion_Login;
 import com.company.Minion_Master;
 
 import javax.swing.*;
@@ -9,6 +8,9 @@ import java.util.ArrayList;
 public class PersonMaker extends Minion_Master {
 
     private String info = null;
+    private String personName = null;
+    private String option = null;
+    private String editAttribute = null;
 
     ArrayList<Persona> person = new ArrayList<>();
 
@@ -17,7 +19,7 @@ public class PersonMaker extends Minion_Master {
     //Get Persona and Set Persona
 
     //pass in array of persons added and search by name. If name = name of person in list bring forward that person's data
-    public void getPerson(String name)
+    public void checkPerson(String name)
     {
         Persona persona = null;
 
@@ -34,6 +36,38 @@ public class PersonMaker extends Minion_Master {
         }
     }
 
+    public void editPerson(String item){
+
+        Persona people = null;
+        for(int i = 0; i< person.size(); i++){
+            if(item.equals(person.get(i).getName().toUpperCase()) || item.equals(person.get(i).getName().toLowerCase())){
+                people = person.get(i);
+                option = JOptionPane.showInputDialog(null, "WHAT DO YOU WANT TO EDIT? \n \n NAME \n AGE \n AFFILIATION \n GENDER \n RACE \n");
+                if(option.equals("name") || option.equals("NAME")){
+                    editAttribute = JOptionPane.showInputDialog(null, "CHANGE " + option);
+                    people.name = editAttribute;
+                }
+                if(option.equals("age") || option.equals("AGE")){
+                    editAttribute = JOptionPane.showInputDialog(null, "CHANGE " + option);
+                    people.age = Integer.parseInt(editAttribute);
+                }
+                if(option.equals("affiliation") || option.equals("AFFILIATION")){
+                    editAttribute = JOptionPane.showInputDialog(null, "CHANGE " + option);
+                    people.affiliation = editAttribute;
+                }
+                if(option.equals("gender") || option.equals("GENDER")){
+                    editAttribute = JOptionPane.showInputDialog(null, "CHANGE " + option);
+                    people.gender = editAttribute;
+                }
+                if(option.equals("race") || option.equals("RACE")){
+                    editAttribute = JOptionPane.showInputDialog(null, "CHANGE " + option);
+                    people.race = editAttribute;
+                }
+            }
+        }
+        checkPerson(item);
+    }
+
     public void addPersona(Persona Person){
         person.add(Person);
     }
@@ -43,7 +77,7 @@ public class PersonMaker extends Minion_Master {
     public void personaInterface(){
 
         info = JOptionPane.showInputDialog(null, "PERSONA DATABASE \n " +
-                " ---------------------- \n What do you wish to do here: \n ---------------------- \n  ADD  \n CHECK \n \n GO TO CATEGORIES");
+                " ---------------------- \n What do you wish to do here: \n ---------------------- \n  ADD  \n CHECK \n EDIT \n \n GO TO CATEGORIES");
 
         if(info.equals("add") || info.equals("ADD")){
             //add to person list
@@ -58,10 +92,15 @@ public class PersonMaker extends Minion_Master {
             //set later to edit persons in system
         }
 
+        if(info.equals("edit") || info.equals("EDIT")){
+            personName = JOptionPane.showInputDialog(null, "PERSON'S NAME");
+            editPerson(personName);
+        }
+
         if(info.equals("CHECK") || info.equals("check")){
             //search for person and bring forward data
             String name = JOptionPane.showInputDialog(null, "SEARCH PERSON'S NAME:" );
-            getPerson(name);
+            checkPerson(name);
         }
 
         if(info.equals("categories") || info.equals("CATEGORIES") || info.equals("back") || info.equals("BACK")){

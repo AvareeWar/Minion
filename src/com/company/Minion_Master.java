@@ -20,7 +20,7 @@ public class Minion_Master{
     public static Minion_Login logins = new Minion_Login();
     public static Minion_Commands_Responses comres = new Minion_Commands_Responses();
     public static PersonMaker peeps = new PersonMaker();
-    public static MusicPlayer music = new MusicPlayer();
+    public static MusicPlayer musics = new MusicPlayer();
 
     //Basic Character attributes
     String nameRec;
